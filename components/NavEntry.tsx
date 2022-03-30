@@ -14,7 +14,7 @@ const NavEntry: NextPage<Props> = (props) => {
       href={link}
       className={
         (current ? "text-blue-600 font-bold" : "") +
-        " uppercase text-xl py-5 px-12 hover:text-blue-500"
+        " uppercase text-xl py-5 px-5 hover:text-blue-500"
       }
     >
       {title}

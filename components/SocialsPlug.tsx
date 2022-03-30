@@ -3,7 +3,7 @@ import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const SocialsPlug: NextPage = () => {
   return (
-    <div className="flex flex-row items-center text-2xl ml-12">
+    <div className="flex flex-row items-center text-2xl">
       <a href={"example.com"} className="hover:text-purple-400 mx-1">
         <FaInstagram />
       </a>
