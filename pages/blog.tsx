@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
+import { getAllPosts, PostMeta } from "../scripts/blog";
 
 const Blog: NextPage = () => {
   return (
@@ -16,3 +17,8 @@ const Blog: NextPage = () => {
 };
 
 export default Blog;
+
+export async function getStaticProps() {
+  const posts = getAllPosts();
+  return { props: {} };
+}
