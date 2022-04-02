@@ -12,7 +12,7 @@ export const getPostFromSlug = (slug: string): Post => {
   return {
     content,
     meta: {
-      excerpt: data.excerpt ?? content.slice(0, 100)[0] + "...",
+      excerpt: data.excerpt ?? "Excerpt missing...", //?? content.slice(0, 100) + (content.length > 100 ? "..." : ""),
       slug,
       title: data.title ?? slug,
       tags: (data.tags ?? []).sort(),
@@ -43,5 +43,12 @@ export interface Post {
 }
 
 export const getAllPosts = () => {
-  const posts = getSlugs().map((slug) => getPostFromSlug(slug));
+  return getSlugs()
+    .map((slug) => getPostFromSlug(slug))
+    .sort((a, b) => {
+      if (a.meta.date > b.meta.date) return 1;
+      else if (a.meta.date < b.meta.date) return -1;
+      else return 0;
+    })
+    .reverse();
 };
